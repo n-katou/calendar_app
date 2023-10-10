@@ -1,16 +1,15 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset='utf-8' />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+  <meta charset='utf-8' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'calendar_app/css/style.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+  <script src="{% static 'calendar_app/js/app.js' %}"></script>
 </head>
-
 <body>
+     <h1>課題管理</h1>
     <div id='calendar'></div>
-
-    {% load static %}
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
-    <script src="{% static 'calendar_app/app.js' %}"></script>
 </body>
-
 </html>

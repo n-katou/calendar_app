@@ -3,5 +3,5 @@ from . import views
 
 app_name = "cal"
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("sc/", views.index, name="index"),
 ]
