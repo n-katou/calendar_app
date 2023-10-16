@@ -1,0 +1,25 @@
+{% load django_bootstrap5 %}<!-- カスタムテンプレートタグの読み込み -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  {% bootstrap_css %}<!-- BootstrapのCSSの読み込み -->
+  {% bootstrap_javascript %}<!-- JavaScriptの読み込み -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+  
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'calendar_app/css/style.css' %}">
+  <script src="{% static 'calendar_app/js/app.js' %}"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>課題管理</h1>
+    <div id='calendar'></div>
+    {% block content %}
+    {% endblock %}
+  </div>
+    
+</body>
+</html>
