@@ -10,16 +10,91 @@
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
   
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'calendar_app/css/style.css' %}">
-  <script src="{% static 'calendar_app/js/app.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+  <script src="{% static '/js/app.js' %}"></script>
 </head>
+
 <body>
-  <div class="container">
-    <h1>課題管理</h1>
-    <div id='calendar'></div>
-    {% block content %}
-    {% endblock %}
+  <h1>課題管理アプリ</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-9 ">
+        <div id='calendar'></div>
+      </div>
+      
+      <div class="col-3">
+        <h3>達成状況</h3>
+        
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>完了⚪︎</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>走る</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>ゲーム</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>着手△</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>勉強</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>未着手×</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>読書</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>期限切れ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>ジム行く</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+      
+    </div>
   </div>
-    
+  {% block content %}
+  {% endblock %}
 </body>
 </html>
