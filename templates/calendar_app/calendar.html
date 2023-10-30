@@ -1,0 +1,107 @@
+{% load django_bootstrap5 %}<!-- カスタムテンプレートタグの読み込み -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  {% bootstrap_css %}<!-- BootstrapのCSSの読み込み -->
+  {% bootstrap_javascript %}<!-- JavaScriptの読み込み -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+  
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/calendar_app/style.css' %}">
+  <script src="{% static '/calendar_app/app.js' %}"></script>
+</head>
+
+<body>
+  <h1>課題管理アプリ</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-9 ">
+        <div id='calendar'></div>
+      </div>
+      
+      <div class="col-3">
+        <h3>達成状況</h3>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>完了⚪︎</th>
+            </tr>
+          </thead>
+          {% for item in todolists %}
+            <tbody>
+              <tr>
+                <td>
+                  <div class="alert alert-{{ item.priority }}" role ="alert">
+                    <p>{{ item.title }}</p>
+                    <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+                    <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                    <a href="#" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          {% endfor %}
+        </table>
+        
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>着手△</th>
+            </tr>
+          </thead>
+          {% for item in todolists %}
+            <tbody>
+              <tr>
+                <td>
+                  <p>{{ item.title }}</p>
+                </td>
+              </tr>
+            </tbody>
+          {% endfor %}
+        </table>
+        
+         <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>未着手×</th>
+            </tr>
+          </thead>
+          {% for item in todolists %}
+            <tbody>
+              <tr>
+                <td>
+                  <p>{{ item.title }}</p>
+                </td>
+              </tr>
+            </tbody>
+          {% endfor %}
+        </table>
+        
+         <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>期限切れ</th>
+            </tr>
+          </thead>
+          {% for item in todolists %}
+            <tbody>
+              <tr>
+                <td>
+                  <p>{{ item.title }}</p>
+                </td>
+              </tr>
+            </tbody>
+          {% endfor %}
+        </table>
+        
+      </div>
+      
+    </div>
+  </div>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
