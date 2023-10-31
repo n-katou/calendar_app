@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import TodoModel
@@ -39,3 +39,16 @@ class create(CreateView):
     model = TodoModel
     fields = ('title', 'memo', 'priority', 'duedate')
     success_url = reverse_lazy('cal:calendar')
+
+class delete(DeleteView):
+    template_name = 'calendar_app/delete.html'
+    model = TodoModel
+    success_url = reverse_lazy('cal:calendar')
+    
+class update(UpdateView):
+    template_name = 'calendar_app/update.html'
+    model = TodoModel
+    fields = ('title', 'memo', 'priority', 'duedate')
+    success_url = reverse_lazy('cal:calendar')
+    
+    
