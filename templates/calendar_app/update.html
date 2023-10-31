@@ -1,0 +1,9 @@
+<form action = '' method = 'POST'>{% csrf_token %}
+    <p>タイトル：{{ form.title }}</p>
+    <p>詳細：</p>
+    <p>{{ form.memo }}</p>
+    <p> ステータス：{{ form.priority }}</p>
+    <p>期日：{{ form.duedate }}</p>
+    <input type="submit" value="更新">
+    
+</form>

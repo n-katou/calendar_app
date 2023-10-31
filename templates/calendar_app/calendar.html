@@ -31,18 +31,24 @@
             </tr>
           </thead>
           {% for item in todolists %}
-            <tbody>
-              <tr>
-                <td>
-                  <div class="alert alert-{{ item.priority }}" role ="alert">
-                    <p>{{ item.title }}</p>
-                    <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
-                    <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">編集</a>
-                    <a href="#" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
+            {% if item.priority == "primary" %}
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="alert alert-{{ item.priority }}" role ="alert">
+                      <p>{{ item.title }}</p>
+                      <div>
+                        <a href="{% url 'cal:detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+                        <a href="{% url 'cal:update' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                        <a href="{% url 'cal:delete' item.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                      </div>
+                      <br>
+                      <p>期日：{{ item.duedate  | date:"o/n/j" }}</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            {% endif %}
           {% endfor %}
         </table>
         
@@ -53,13 +59,24 @@
             </tr>
           </thead>
           {% for item in todolists %}
-            <tbody>
-              <tr>
-                <td>
-                  <p>{{ item.title }}</p>
-                </td>
-              </tr>
-            </tbody>
+            {% if item.priority == "warning" %}
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="alert alert-{{ item.priority }}" role ="alert">
+                      <p>{{ item.title }}</p>
+                      <div>
+                        <a href="{% url 'cal:detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+                        <a href="{% url 'cal:update' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                        <a href="{% url 'cal:delete' item.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                      </div>
+                      <br>
+                      <p>期日：{{ item.duedate  | date:"o/n/j" }}</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            {% endif %}
           {% endfor %}
         </table>
         
@@ -70,13 +87,24 @@
             </tr>
           </thead>
           {% for item in todolists %}
-            <tbody>
-              <tr>
-                <td>
-                  <p>{{ item.title }}</p>
-                </td>
-              </tr>
-            </tbody>
+            {% if item.priority == "danger" %}
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="alert alert-{{ item.priority }}" role ="alert">
+                      <p>{{ item.title }}</p>
+                      <div>
+                        <a href="{% url 'cal:detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+                        <a href="{% url 'cal:update' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                        <a href="{% url 'cal:delete' item.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                      </div>
+                      <br>
+                      <p>期日：{{ item.duedate  | date:"o/n/j" }}</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            {% endif %}
           {% endfor %}
         </table>
         
@@ -87,15 +115,27 @@
             </tr>
           </thead>
           {% for item in todolists %}
-            <tbody>
-              <tr>
-                <td>
-                  <p>{{ item.title }}</p>
-                </td>
-              </tr>
-            </tbody>
+            {% if item.priority == "dark" %}
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="alert alert-{{ item.priority }}" role ="alert">
+                      <p>{{ item.title }}</p>
+                      <div>
+                        <a href="{% url 'cal:detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+                        <a href="{% url 'cal:update' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                        <a href="{% url 'cal:delete' item.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                      </div>
+                      <br>
+                      <p>期日：{{ item.duedate  | date:"o/n/j" }}</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            {% endif %}
           {% endfor %}
         </table>
+        <a href="{% url 'cal:create' %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
         
       </div>
       
