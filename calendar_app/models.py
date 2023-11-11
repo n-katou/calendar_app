@@ -11,7 +11,8 @@ class TodoModel(models.Model):
         max_length=50,
         choices = CHOICE
         )
-    duedate = models.DateField()
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     
     
     def __str__(self):
