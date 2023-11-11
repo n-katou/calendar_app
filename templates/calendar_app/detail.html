@@ -2,9 +2,12 @@
 <html>
 <head></head>
 <body>
-    <h2>{{ todomodel.title }}</h2>
-    <p>{{ todomodel.memo }}</p>
-    <p>{{ todomodel.get_priority_display }}</p>
-    <p>{{ todomodel.duedate }}</p>
+    <h2>タイトル{{ todomodel.title }}</h2>
+    <p>詳細：{{ todomodel.memo }}</p>
+    <p>ステータス：{{ todomodel.get_priority_display }}</p>
+    <p>開始：{{ todomodel.start_date }}</p>
+    <p>終了：{{ todomodel.end_date }}</p>
+    <a href="{% url 'cal:update' pk=todomodel.pk %}">編集</a>
+    <a href="{% url 'cal:calendar'%}">戻る</a>
 </body>
 </html>
