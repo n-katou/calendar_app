@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             today: '今月',
             month: '月',
             week: '週',
-            day: '日a',
+            day: '日',
         },
         buttonHints: {
             prev: '前の$0',
